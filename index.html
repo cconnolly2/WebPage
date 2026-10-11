@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body { margin: 0; }</style>
+<title>Useful Links</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+  /* Layout: blue marble backdrop, one compact white panel holding a dense list of small links */
+  :root {
+    --ink: #ffffff;
+    --muted: #d6e6ff;
+    --link: #ffffff;
+    --hover: rgba(6, 20, 48, 0.35);
+    --topic: #3dff6e;
+    --topic-hover: #b8ffcb;
+    --shadow: 0 1px 3px rgba(4, 14, 34, 0.85), 0 0 12px rgba(4, 14, 34, 0.6);
+    --marble-base: #1d3f6e;
+    --font: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { min-height: 100%; }
+  body {
+    background: var(--marble-base);
+    color: var(--ink);
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.45;
+    padding-inline: 16px;
+  }
+
+  .marble {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: block;
+  }
+
+  main {
+    max-width: 520px;
+    margin: 0 auto;
+    padding-block: 56px;
+  }
+
+  .panel { text-shadow: var(--shadow); }
+
+  header { padding: 0 12px 16px; }
+  h1 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .byline { margin: 2px 0 0; font-size: 0.85rem; font-style: italic; color: var(--muted); }
+  .subtitle {
+    margin: 2px 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  ul.links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; }
+
+  .links a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 7px 12px;
+    border-radius: 6px;
+    color: var(--link);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.12s;
+  }
+  .links a:hover { background: var(--hover); }
+  .links a:focus-visible {
+    background: var(--hover);
+    outline: 2px solid var(--link);
+    outline-offset: 0;
+  }
+
+  .links a > span:first-child { flex: none; }
+  .desc {
+    flex: 1;
+    min-width: 0;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.12s;
+  }
+  .links a:hover .desc, .links a:focus-visible .desc { opacity: 1; }
+
+  /* Topics menu */
+  .topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    padding: 0 12px 24px;
+  }
+  .topics a {
+    color: var(--topic);
+    font-size: 0.95rem;
+    font-style: italic;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .topics a:hover { color: var(--topic-hover); }
+  .topics a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+  section + section { margin-top: 22px; }
+  h2 {
+    margin: 0 0 4px;
+    padding: 0 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--topic);
+  }
+  .empty { margin: 0; padding: 7px 12px; font-size: 0.8rem; font-style: italic; color: var(--muted); }
+  .links.sub { margin-left: 16px; padding-left: 8px; border-left: 1px solid rgba(255, 255, 255, 0.35); }
+  .links.sub a { font-weight: 400; }
+  section { scroll-margin-top: 16px; }
+  h2:focus { outline: none; }
+  .topics-heading { margin-bottom: 8px; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  section h2 {
+    color: var(--ink);
+    font-style: italic;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .links a, .desc { transition: none; }
+  }
+</style>
+
+<svg class="marble" aria-hidden="true" preserveAspectRatio="none">
+  <filter id="marble" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.0025 0.007" numOctaves="6" seed="11"/>
+    <feColorMatrix type="matrix" values="1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.25 0.3 0.35 0.3 0.95 0.3 0.4 0.35 0.3 0.8 0.3 0.25 0.3"/>
+      <feFuncG type="table" tableValues="0.25 0.3 0.35 0.3 0.95 0.3 0.4 0.35 0.3 0.8 0.3 0.25 0.3"/>
+      <feFuncB type="table" tableValues="0.25 0.3 0.35 0.3 0.95 0.3 0.4 0.35 0.3 0.8 0.3 0.25 0.3"/>
+    </feComponentTransfer>
+    <feColorMatrix type="matrix" values="0.36 0 0 0 0.04  0 0.55 0 0 0.13  0 0 0.6 0 0.31  0 0 0 0 1"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#marble)"/>
+</svg>
+
+<main>
+  <div class="panel">
+    <header>
+      <h1>Useful Links</h1>
+      <p class="byline">Compiled by C Connolly</p>
+      <p class="subtitle">Hover over a name for a description. Links open in a new tab.</p>
+    </header>
+    <h2 id="topics-heading" class="topics-heading">Topics</h2>
+    <nav class="topics" aria-labelledby="topics-heading">
+      <a href="#art-media">Art and Media</a>
+      <a href="#free-tools">Free Tools</a>
+      <a href="#mapping">Mapping</a>
+      <a href="#osint">OSINT</a>
+      <a href="#science">Research and Datasets</a>
+      <a href="#academic">Academic and Courses</a>
+      <a href="#visual">Visual/Interactive Learning</a>
+      <a href="#us-government">US Government</a>
+      <a href="#fun">Fun Stuff</a>
+      <a href="#cheat-sheets">Cheat Sheets</a>
+      <a href="#ai-tools">AI Tools</a>
+      <a href="#other">Other</a>
+    </nav>
+    <section id="art-media">
+      <h2>Art and Media</h2>
+      <ul class="links">
+        <li>
+          <a href="https://artsandculture.google.com/project/art-camera" target="_blank" rel="noopener noreferrer">
+            <span>Fine Art Inspection</span><span class="desc">Inspect Fine Art Closely</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://commons.wikimedia.org/wiki/Main_Page" target="_blank" rel="noopener noreferrer">
+            <span>Wiki Media Commons</span><span class="desc">Huge collection of free media</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://openlibrary.org/" target="_blank" rel="noopener noreferrer">
+            <span>Open Library</span><span class="desc">Internet Archive Library of Books</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.gutenberg.org/" target="_blank" rel="noopener noreferrer">
+            <span>Project Gutenberg</span><span class="desc">Free eBooks by Category</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.si.edu/explore" target="_blank" rel="noopener noreferrer">
+            <span>Cooper Hewitt Design</span><span class="desc">Heck o Random Stuff from Smithsonian Also iPhone Apps</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="free-tools">
+      <h2>Free Tools</h2>
+      <ul class="links">
+        <li>
+          <a href="https://www.tinywow.com" target="_blank" rel="noopener noreferrer">
+            <span>Tiny Wow</span><span class="desc">Assorted Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.photopea.com" target="_blank" rel="noopener noreferrer">
+            <span>Photopea</span><span class="desc">Photoshop-style editor in your browser</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.ilovepdf.com" target="_blank" rel="noopener noreferrer">
+            <span>I Love PDF</span><span class="desc">free PDF tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.wolframalpha.com/" target="_blank" rel="noopener noreferrer">
+            <span>Wolfram Alpha</span><span class="desc">Answer to Everything</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ninite.com/" target="_blank" rel="noopener noreferrer">
+            <span>Ninite Software Downloads</span><span class="desc">Easy Installers for Numerous SW Apps</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="mapping">
+      <h2>Mapping</h2>
+      <ul class="links">
+        <li>
+          <a href="https://www.openstreetmap.org/#map=4/38.10/-75.94" target="_blank" rel="noopener noreferrer">
+            <span>Open Street Maps</span><span class="desc">Open Source Map that is viewable and editable</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://360earthmaps.com/" target="_blank" rel="noopener noreferrer">
+            <span>360 Earth Map</span><span class="desc">High Resolution Earth Map</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.davidrumsey.com/" target="_blank" rel="noopener noreferrer">
+            <span>David Rumsey Map Collection</span><span class="desc">Historical Map Collection</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.atlasobscura.com/" target="_blank" rel="noopener noreferrer">
+            <span>Atlas Obscura</span><span class="desc">Obscure and Hidden Places</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://yandex.com/maps/?ll=13.594837%2C52.063059&amp;z=5.97" target="_blank" rel="noopener noreferrer">
+            <span>Yandex Maps</span><span class="desc">Mapping</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="osint">
+      <h2>OSINT</h2>
+      <ul class="links">
+        <li>
+          <a href="https://osintframework.com/" target="_blank" rel="noopener noreferrer">
+            <span>Osint Framework</span><span class="desc">Osint Resources</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://bellingcat.gitbook.io/toolkit" target="_blank" rel="noopener noreferrer">
+            <span>Bellingcat Toolkit</span><span class="desc">Open Source Research Tools</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://builtwith.com/" target="_blank" rel="noopener noreferrer">
+            <span>Built With</span><span class="desc">Company Info</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://exif.tools/" target="_blank" rel="noopener noreferrer">
+            <span>Exif Tools</span><span class="desc">Extracts Image Metadata</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://whatsmyname.io/" target="_blank" rel="noopener noreferrer">
+            <span>Whats My Name</span><span class="desc">Find Sites That Use UserName(s) Email</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="science">
+      <h2>Research and Datasets</h2>
+      <ul class="links">
+        <li>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">
+            <span>PubMed Medical</span><span class="desc">Medical Research</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://datasetsearch.research.google.com/" target="_blank" rel="noopener noreferrer">
+            <span>Google Data Sets</span><span class="desc">Data Set Search on Google</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://archive.ics.uci.edu/" target="_blank" rel="noopener noreferrer">
+            <span>UCI Machine Learning Repository</span><span class="desc">Donated Data Sets</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.data-is-plural.com/" target="_blank" rel="noopener noreferrer">
+            <span>Data Is Plural</span><span class="desc">Weekly News Letter of Useful/Curious Datasets</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://telescopius.com/" target="_blank" rel="noopener noreferrer">
+            <span>Telescopius</span><span class="desc">Interactive Targets in Sky</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://aviation-safety.net/" target="_blank" rel="noopener noreferrer">
+            <span>Aviation Safety Network</span><span class="desc">Catalog of Air Crashes</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="academic">
+      <h2>Academic and Courses</h2>
+      <ul class="links">
+        <li>
+          <a href="https://www.openculture.com/" target="_blank" rel="noopener noreferrer">
+            <span>Open Culture</span><span class="desc">Links to all Kinds of Free Academic Media</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://ocw.mit.edu/" target="_blank" rel="noopener noreferrer">
+            <span>MIT Open CourseWare</span><span class="desc">Free Courses from MIT</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.theodinproject.com/" target="_blank" rel="noopener noreferrer">
+            <span>ODIN Project</span><span class="desc">Structured Course in Web Development and Programming</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.openintro.org/" target="_blank" rel="noopener noreferrer">
+            <span>Open Intro</span><span class="desc">Free Math and Statistics Books</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.open.edu/openlearn/" target="_blank" rel="noopener noreferrer">
+            <span>Open University</span><span class="desc">Free Courses from Open University</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="visual">
+      <h2>Visual/Interactive Learning</h2>
+      <ul class="links">
+        <li>
+          <a href="https://seeing-theory.brown.edu/" target="_blank" rel="noopener noreferrer">
+            <span>Seeing Theory</span><span class="desc">Interactive Way to Learn Statistics</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://r2d3.us/visual-intro-to-machine-learning-part-1/" target="_blank" rel="noopener noreferrer">
+            <span>R2D3 Machine Learning</span><span class="desc">Visual Approach to Learning Machine Learning</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://setosa.io/#/" target="_blank" rel="noopener noreferrer">
+            <span>Setosa IO</span><span class="desc">Visual Explanations of Mathematical Concepts</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://distill.pub/about/" target="_blank" rel="noopener noreferrer">
+            <span>Distill Machine Learning</span><span class="desc">Various Visual Lessons in Machine Learning</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="us-government">
+      <h2>US Government</h2>
+      <ul class="links">
+        <li>
+          <a href="https://www.usa.gov/benefit-finder" target="_blank" rel="noopener noreferrer">
+            <span>Gov Benefit Finder</span><span class="desc">Benefit Finder</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.loc.gov/search/?in=&amp;q=&amp;new=true" target="_blank" rel="noopener noreferrer">
+            <span>Library of Congress Online</span><span class="desc">Library of Congress Online Collection</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.fbi.gov/" target="_blank" rel="noopener noreferrer">
+            <span>FBI Vault</span><span class="desc">FBI Government Site</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="fun">
+      <h2>Fun Stuff</h2>
+      <ul class="links">
+        <li>
+          <a href="https://theuselessweb.com/" target="_blank" rel="noopener noreferrer">
+            <span>Useless Web</span><span class="desc">Takes you to a random useless website</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.window-swap.com/" target="_blank" rel="noopener noreferrer">
+            <span>Window Swap</span><span class="desc">Takes you to a random webcam around the world</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="cheat-sheets">
+      <h2>Cheat Sheets</h2>
+      <ul class="links">
+        <li>
+          <a href="https://cheatography.com/" target="_blank" rel="noopener noreferrer">
+            <span>Cheatology</span><span class="desc">Cheat Sheets for Everything</span>
+          </a>
+          <ul class="links sub">
+            <li>
+              <a href="https://cheatography.com/sschaub/cheat-sheets/essential-python/pdf/?last=1463128017" target="_blank" rel="noopener noreferrer">
+                <span>Python Essential</span><span class="desc">Cheat Sheet</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://cheatography.com/nimakarimian/cheat-sheets/python3-lists-everything-you-need-to-know/pdf/?last=1594581573" target="_blank" rel="noopener noreferrer">
+                <span>Python Lists</span><span class="desc">Cheat Sheet</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://cheatography.com/davechild/cheat-sheets/python/pdf/?last=1669021462" target="_blank" rel="noopener noreferrer">
+                <span>Python Dictionary</span><span class="desc">Cheat Sheet</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://cheatography.com/sertalpbilal/cheat-sheets/git-commands/pdf/?last=1587503160" target="_blank" rel="noopener noreferrer">
+                <span>Git Commands</span><span class="desc">Cheat Sheet</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section id="ai-tools">
+      <h2>AI Tools</h2>
+      <ul class="links">
+        <li>
+          <a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer">
+            <span>Hugging Face Spaces</span><span class="desc">Access to Various AI Models</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section id="other">
+      <h2>Other</h2>
+      <ul class="links">
+        <li>
+          <a href="https://hunter.io/dashboard" target="_blank" rel="noopener noreferrer">
+            <span>Hunter</span><span class="desc">Company Emails and info</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://web.archive.org/" target="_blank" rel="noopener noreferrer">
+            <span>Way Back Machine</span><span class="desc">Archived Web Pages</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">
+            <span>Been PNWd</span><span class="desc">Check for Email and phone number leaks</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</main>
+<script>
+  // Scroll to a topic directly; plain #anchor jumps don't work inside some viewers.
+  document.querySelectorAll('.topics a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      var heading = target.querySelector('h2');
+      if (heading) { heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
+    });
+  });
+</script>
+</html>
